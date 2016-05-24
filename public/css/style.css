@@ -92,3 +92,55 @@ input[type=checkbox]:focus {
     background-color: #ffd2a0;
     width: 50%;
 }
+
+#menu_icon{
+    
+    text-align:center;
+    transition: background-color 0.4s ease;
+}
+
+#menu_icon i{
+    
+    color: #a5a5a5;
+    padding: 50px;
+}
+
+#menu_icon:hover{
+    
+    background-color: #e64a30;
+    
+}
+
+#menu_icon:hover i{ 
+    color:white;}
+    
+.footer{
+    background-color: #e64a30;
+    color:white;
+    text-align:center;
+    width: 100%;
+    position: absolute;
+  bottom: 0;
+   height: 20px;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 20px;
+}
+
+a:hover{
+    
+    text-decoration: none;
+}
+
+.table{
+    
+    margin-bottom: 60px;
+}
+
+#create_btn{margin-bottom: 40px;}
