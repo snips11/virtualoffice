@@ -16,7 +16,7 @@ Office Flex
 <meta name="viewport" content="width=device-width" />
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>ZURBemails</title>
+<title>Office Flex Mailbox</title>
 	
 <link rel="stylesheet" type="text/css" href="public/css/email.css" />
 
@@ -33,7 +33,7 @@ Office Flex
 				<div class="content">
 					<table bgcolor="#fff">
 					<tr>
-						<td><img src="public/images/officeflexlogo.png"></td>
+						<td><img src="{{ $message->embed('/images/officeflexlogo.png')}}"></td>
 						<!--<td align="right"><h6 class="collapse">Hero</h6></td>-->
 					</tr>
 				</table>
