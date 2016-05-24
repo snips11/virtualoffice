@@ -45,11 +45,11 @@ class CustomerController extends Controller
    
           if($term = $request->get('term')){
               
-              $customers = customers::where('firstname', 'like', '%' .$term.'%')->get(); 
+              $customers = Customers::where('firstname', 'like', '%' .$term.'%')->get(); 
               
           }
             else{
-              $customers = customers::all(); 
+              $customers = Customers::all(); 
          
             }     
                
