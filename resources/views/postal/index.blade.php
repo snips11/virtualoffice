@@ -8,6 +8,7 @@
     
    <?php
 echo "Today is " . date("d/m/Y") . "<br>";?>
+
 <div class="row">
     <div class="col-md-12">
         <table class="table table-striped">
@@ -38,6 +39,7 @@ echo "Today is " . date("d/m/Y") . "<br>";?>
             </tbody>    
         </table>
     </div>    
+ </div>
  </div>
 @endsection
 @section('scripts')

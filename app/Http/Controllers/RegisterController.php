@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Customers;
+use Mail;
+use Session;
 class RegisterController extends Controller
 {
     /**
@@ -22,7 +24,8 @@ class RegisterController extends Controller
      
     public function index()
     {
-        return view ('user_register.create');
+        return view ('user_register.index');
+        
     }
 
     /**
@@ -32,7 +35,7 @@ class RegisterController extends Controller
      */
     public function create()
     {
-        //
+        return view ('user_register.create');
     }
 
     /**
@@ -45,18 +48,16 @@ class RegisterController extends Controller
     {
        //validate
         $this->validate($request, array (
-            'business' => 'required|max:255',
+            'business' => 'required|max:255|unique:customers,business',
             'firstname' => 'required|max:255',
             'surname' => 'required|max:255',
             'address1' => 'required|max:255',
-            'address2' => 'required|max:255',
+            'address2' => 'max:255',
             'city' => 'required|max:255',
             'postcode' => 'required|max:255',
             'tel' => 'required|max:255',
             'email' => 'required|max:255|email',
-            'post' => '',
-            'telans' => '',
-            'conum' => '',
+            
         ));
         //store
         $post = new Customers;
@@ -70,19 +71,19 @@ class RegisterController extends Controller
         $post->postcode = $request->postcode;
         $post->tel = $request->tel;
         $post->email = $request->email;
-        $post->post = $request->post;
-        $post->telans = $request->telans;
-        $post->conum = $request->conum;
+    
         
         //save
+        $post1 = $post->id;
         $post->save();
         
         //session flash message
         //Session::flash('success_user','Congratulations you are ready to go.');
         
         //redirect
-return redirect('/products');}
-    
+//return redirect()->route('user_register.show', $post1);
+return redirect('/products');
+    }
 
     /**
      * Display the specified resource.
@@ -92,7 +93,15 @@ return redirect('/products');}
      */
     public function show($id)
     {
-        //
+      /*$user = customers::findOrFail($id);
+
+        Mail::send('emails.post', ['email' => 'james@officeflexuk.com'], function ($m) use ($user) {
+            $m->from('virtual@officeflexuk.com', 'Office Flex Mailbox');
+
+            $m->to('james@officeflexuk.com', $user->business)->subject('Office Flex has a new customer: '.$user->name.'.');
+        });
+        Session::flash('success','Mail sent');
+        return redirect()->route('products.index');*/
     }
 
     /**
@@ -103,7 +112,8 @@ return redirect('/products');}
      */
     public function edit($id)
     {
-        //
+        
+        
     }
 
     /**
@@ -115,7 +125,43 @@ return redirect('/products');}
      */
     public function update(Request $request, $id)
     {
-        //
+       $this->validate($request, array (
+            
+            'firstname' => 'required|max:255',
+            'surname' => 'required|max:255',
+            'address1' => 'required|max:255',
+            'address2' => 'max:255',
+            'city' => 'required|max:255',
+            'postcode' => 'required|max:255',
+            'tel' => 'required|max:255',
+            'email' => 'required|max:255|email',
+            
+        ));
+        
+        //store
+        $post = Customers::find($id);
+        
+        
+        
+        $post->firstname = $request->input('firstname');
+        $post->surname = $request->input('surname');
+        $post->address1 = $request->input('address1');
+        $post->address2 = $request->input('address2');
+        $post->city = $request->input('city');
+        $post->postcode = $request->input('postcode');
+        $post->tel = $request->input('tel');
+        $post->email = $request->input('email');
+        $post1=$post->id;
+        //save
+        
+        
+        $post->save();
+        
+        //session flash message
+        Session::flash('success','Your details have been updated');
+        
+        //redirect
+return view('home');
     }
 
     /**

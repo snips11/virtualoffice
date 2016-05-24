@@ -5,11 +5,17 @@
 @endsection
 
 @section('content')
-
-<h3> Welcome {{Auth::user()->name}}</h3>
-{!! Form::open(array('route' => 'user_register.store', 'data-parsley-validate'=> '')) !!}
+<h3> Update your details {{Auth::user()->name}}</h3>
+<?php
+$id = DB::table('customers')->where('business', Auth::user()->name)->pluck('id');
+$iid=implode($id);
+?>
+{!! Form::model('Customers', ['route'=>['user_register.update', $iid],'method' => 'PUT']) !!}
     
-    {{ Form::hidden('business', Auth::user()->name, array('class' => 'form-control', 'required' => '','maxlength'=>'255'))}}
+ {{ Form::hidden('business', Auth::user()->name, array('class' => 'form-control', 'required' => '','maxlength'=>'255'))}}
+    
+    
+     {{ Form::hidden('business', Auth::user()->name, array('class' => 'form-control', 'required' => '','maxlength'=>'255'))}}
     {{ Form::hidden('email', Auth::user()->email, array('class' => 'form-control', 'required' => '','maxlength'=>'255'))}}
     
     {{ Form::label('firstname', 'First Name')}}
@@ -33,7 +39,7 @@
     {{ Form::label('tel', 'Contact Number')}}
     {{ Form::text('tel', null, array('class' => 'form-control', 'required' => '','maxlength'=>'12'))}}
     </br>
-    {{ Form::submit('Create Account', array('class' => 'btn btn-success', 'id' => 'create_btn'))}}
+    {{ Form::submit('Update Account', array('class' => 'btn btn-success', 'id' => 'create_btn'))}}
 {!! Form::close() !!}
 @endsection
 

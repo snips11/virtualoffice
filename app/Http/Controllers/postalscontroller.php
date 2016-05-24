@@ -31,10 +31,7 @@ class postalscontroller extends Controller
                
      
          return view ("postal.index")->with('customers',$customers);
-         
-        
-
-        
+    
     }
 
     /**

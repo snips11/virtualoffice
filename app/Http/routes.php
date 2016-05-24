@@ -20,9 +20,9 @@
 
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+
+Route::get('/', 'HomeController@index');
 
 Route::get('user', function () {
     return view('auth.login');
@@ -32,6 +32,7 @@ Route::get('user', function () {
 Route::auth();
 
   
+Route::resource('mail', 'MailController');
 
   Route::resource('user_register', 'RegisterController');
   

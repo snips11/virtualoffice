@@ -42,7 +42,7 @@ $iid=implode($id);
         <div id="extra_form4">
             {{ Form::label('telanstc', 'Telephone Answering Terms and Conditions')}}</br>
             Click here
-        </div>-->
+        </div>
     {{ Form::label('TC', 'I accept the Office Flex terms and conditions.')}}
     {{ Form::checkbox('TC',1, 0, array('class' => 'form-control','required'=>''))}}
     {{ Form::submit('Select Product', array('class' => 'btn btn-success', 'id' => 'create_btn'))}}
