@@ -81,7 +81,7 @@ return [
     |
     */
 
-    'username' => env('postmaster@officeflexuk.com'),
+    'username' => env('MAIL_USERNAME'),
 
     /*
     |--------------------------------------------------------------------------
