@@ -19,24 +19,7 @@ class CustomerController extends Controller
         $this->middleware('admin');
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-   
-        
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-     
-      /*public function __construct()
-    {
-        $this->middleware('auth');
-    }*/
+    
      
    
      

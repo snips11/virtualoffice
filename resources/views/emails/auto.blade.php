@@ -1,9 +1,3 @@
-
-@foreach ($email as $post)
-
-@endforeach
-
-
 <head>
 <!-- If you delete this tag, the sky will fall on your head -->
 <meta name="viewport" content="width=device-width" />
@@ -26,7 +20,7 @@
 				<div class="content">
 					<table bgcolor="#fff">
 					<tr>
-						<td><img src="{{ $message->embed('/images/officeflexlogo.png')}}"></td>
+						<td><img src=""></td>
 						<!--<td align="right"><h6 class="collapse">Hero</h6></td>-->
 					</tr>
 				</table>
@@ -49,7 +43,7 @@
 				<tr>
 					<td>
 						
-						<h3>You have mail, {{$post->business}}</h3>
+						<h3>You have mail,</h3>
 						
 						
 						<!-- A Real Hero (and a real human being) -->
@@ -57,7 +51,7 @@
 						
 						<!-- Callout Panel -->
 						<p class="callout">
-							You have had mail delivered today and are awaiting collection.
+							You have had mail delivered today and is awaiting collection.
 						</p><!-- /Callout Panel -->
 						
 						<h4>Thank you from Office Flex</h4>
@@ -87,7 +81,7 @@
 									
 									<!--- column 2 -->
 									<table align="left" class="column">
-										<tr>Message sent at {{$post->created_at}}
+										
 											<td>				
 																			
 												<h5 class="">Contact Info:</h5>												

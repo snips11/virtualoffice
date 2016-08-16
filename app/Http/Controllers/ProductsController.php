@@ -89,10 +89,10 @@ return redirect('/home');}
         
 $email=['email' => $user];
      
-        Mail::send('emails.post', ['email' => $email], function ($m) use ($user) {
-            $m->from('virtual@officeflexuk.com', 'Office Flex Mailbox');
+        Mail::send('emails.new', ['email' => $email], function ($m) use ($user) {
+            $m->from('info@officeflexuk.com', 'Office Flex Mailbox');
 
-            $m->to('parsonsjames10@gmail.com', $user->business)->subject('Office Flex have '.$user->items.' piece(s) of mail for you.');
+            $m->to('james@officeflexuk.com', $user->business)->subject('Office Flex you have a new customer, '.$user->business.'.');
         });
         Session::flash('success','You are ready to go!');
         return redirect('/home');
